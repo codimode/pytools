@@ -14,7 +14,7 @@ def conexao():
 
 @pytest.fixture
 def sessao(conexao):
-    ses = conexao.gerar_sessao()
-    yield ses
-    ses.roll_back()
-    ses.fechar()
+    sessao_obj = conexao.gerar_sessao()
+    yield sessao_obj
+    sessao_obj.roll_back()
+    sessao_obj.fechar()
